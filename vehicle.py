@@ -11,19 +11,19 @@ class Vehicle(object):
         self.make = make
         self.model = model
         self.year = year
-        self.sold_on = sold_on
 
-    def sale_price(self):
-        """Return the sale price for this vehicle as a float amount."""
-        if self.sold_on is not None:
-            return 0.0  # Already sold
-        return 5000.0 * self.wheels
+    def set_number_of_wheels(self, wheels):
+        self.wheels = wheels
 
-    def purchase_price(self):
-        """Return the price for which we would pay to purchase the vehicle."""
-        if self.sold_on is None:
-            return 0.0  # Not yet sold
-        return self.base_sale_price - (.10 * self.miles)
+    def number_of_wheels(self):
+        if self.wheels is not None:
+            return 4
+        return self.wheels
+
+    def price_of_vehicle(self):
+        if self.year is not None:
+            return 0.0  # Already year
+        return (5000.0 * self.wheels) + (.10 * self.miles)
 
     @abstractmethod
     def vehicle_type(self):

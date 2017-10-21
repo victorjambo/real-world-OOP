@@ -1,7 +1,9 @@
 from vehicle import Vehicle
 class Car(Vehicle):
-	base_sale_price = 8000
-	wheels = 4
-
+	top_speed = 180
+	
+	def set_car_type(self, type):
+		self.type = type
+	
 	def vehicle_type(self):
-		return 'car type'
+		return self.type
